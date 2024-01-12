@@ -35,6 +35,24 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ClicRay"",
+                    ""type"": ""Button"",
+                    ""id"": ""428ed940-9dc0-4e1c-9d96-915becbfef70"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClickPos"",
+                    ""type"": ""Value"",
+                    ""id"": ""1dc5603e-9b2b-46e4-906a-da670a8f1c1d"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -48,6 +66,28 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""action"": ""MoveCam"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd518cf0-29b4-42ac-98e3-c2ab74e579b9"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClicRay"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84345c65-00c8-46e7-afde-b4798dd8e971"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClickPos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +97,8 @@ public partial class @Control: IInputActionCollection2, IDisposable
         // Action
         m_Action = asset.FindActionMap("Action", throwIfNotFound: true);
         m_Action_MoveCam = m_Action.FindAction("MoveCam", throwIfNotFound: true);
+        m_Action_ClicRay = m_Action.FindAction("ClicRay", throwIfNotFound: true);
+        m_Action_ClickPos = m_Action.FindAction("ClickPos", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -119,11 +161,15 @@ public partial class @Control: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Action;
     private List<IActionActions> m_ActionActionsCallbackInterfaces = new List<IActionActions>();
     private readonly InputAction m_Action_MoveCam;
+    private readonly InputAction m_Action_ClicRay;
+    private readonly InputAction m_Action_ClickPos;
     public struct ActionActions
     {
         private @Control m_Wrapper;
         public ActionActions(@Control wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveCam => m_Wrapper.m_Action_MoveCam;
+        public InputAction @ClicRay => m_Wrapper.m_Action_ClicRay;
+        public InputAction @ClickPos => m_Wrapper.m_Action_ClickPos;
         public InputActionMap Get() { return m_Wrapper.m_Action; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -136,6 +182,12 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @MoveCam.started += instance.OnMoveCam;
             @MoveCam.performed += instance.OnMoveCam;
             @MoveCam.canceled += instance.OnMoveCam;
+            @ClicRay.started += instance.OnClicRay;
+            @ClicRay.performed += instance.OnClicRay;
+            @ClicRay.canceled += instance.OnClicRay;
+            @ClickPos.started += instance.OnClickPos;
+            @ClickPos.performed += instance.OnClickPos;
+            @ClickPos.canceled += instance.OnClickPos;
         }
 
         private void UnregisterCallbacks(IActionActions instance)
@@ -143,6 +195,12 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @MoveCam.started -= instance.OnMoveCam;
             @MoveCam.performed -= instance.OnMoveCam;
             @MoveCam.canceled -= instance.OnMoveCam;
+            @ClicRay.started -= instance.OnClicRay;
+            @ClicRay.performed -= instance.OnClicRay;
+            @ClicRay.canceled -= instance.OnClicRay;
+            @ClickPos.started -= instance.OnClickPos;
+            @ClickPos.performed -= instance.OnClickPos;
+            @ClickPos.canceled -= instance.OnClickPos;
         }
 
         public void RemoveCallbacks(IActionActions instance)
@@ -163,5 +221,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
     public interface IActionActions
     {
         void OnMoveCam(InputAction.CallbackContext context);
+        void OnClicRay(InputAction.CallbackContext context);
+        void OnClickPos(InputAction.CallbackContext context);
     }
 }
