@@ -25,7 +25,7 @@ public class Controller : MonoBehaviour
     GameObject currObj = null;
     Vector3 mousePos;
     Vector3 worldPos;
-    float camDist;
+    float camDist = 10;
     bool lockObject;
 
     private void Awake()
@@ -95,7 +95,7 @@ public class Controller : MonoBehaviour
                 {
                     currObj = hit.collider.gameObject;
                     moveObjectPos.transform.position = currObj.transform.position;
-                    camDist = moveObjectPos.transform.position.z;
+                    camDist = currObj.transform.position.z;
                     currObj.GetComponent<Rigidbody>().useGravity = false;
                 }
             }
