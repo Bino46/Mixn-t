@@ -1,0 +1,34 @@
+{
+    "name": "Control",
+    "maps": [
+        {
+            "name": "Action",
+            "id": "5557ce29-3ab6-453f-8e6d-aec3b613ae41",
+            "actions": [
+                {
+                    "name": "MoveCam",
+                    "type": "Value",
+                    "id": "fa1df1b9-f065-4705-a367-dc48efc112d8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0b72a06a-b007-4fa6-aa69-3349577d7ebe",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveCam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
