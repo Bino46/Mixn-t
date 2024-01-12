@@ -11,23 +11,23 @@ public class RecipeContainer : MonoBehaviour
     {
         if (other.gameObject.layer == 3)
         {
+            Ingredient newIngr = other.gameObject.GetComponent<Ingredient>();
             if (index > 0)
             {
-                for (int i = index - 1; i >= 0; i--)
+                for (int i = index; i >= 0; i--)
                 {
-                    Debug.Log(i);
-                    if (ingredients[index].value > ingredients[i].value)
+                    if (newIngr.value > ingredients[i].value)
                     {
                         if (i == index - 1)
-                            ingredients.Add(other.gameObject.GetComponent<Ingredient>());
+                            ingredients.Add(newIngr);
                         else
-                            ingredients.Insert(i, other.gameObject.GetComponent<Ingredient>());
+                            ingredients.Insert(i, newIngr);
                     }
                 }
             }
             else
             {
-                ingredients.Add(other.gameObject.GetComponent<Ingredient>());
+                ingredients.Add(newIngr);
             }
 
             index++;
