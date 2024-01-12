@@ -109,7 +109,6 @@ public class Controller : MonoBehaviour
 
     void GetMousePos(InputAction.CallbackContext ctx)
     {
-        Debug.Log(mousePos + " " + worldPos);
         mousePos.x = clicPos.ReadValue<Vector2>().x;
         mousePos.y = clicPos.ReadValue<Vector2>().y;
         mousePos.z = camDist;
