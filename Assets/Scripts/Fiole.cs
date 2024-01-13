@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using Unity.Mathematics;
 
 public class Fiole : MonoBehaviour
 {
@@ -16,25 +17,45 @@ public class Fiole : MonoBehaviour
     [SerializeField] Vector3 yeetDir;
     [SerializeField] float yeetForce;
     [SerializeField] Mesh moai;
+    [SerializeField] Mesh phrog;
     Mesh kayou;
     Animator animRock;
     Rigidbody bodyRock;
     BoxCollider colRock;
     MeshFilter meshRock;
+    MeshRenderer renderRock;
+    [SerializeField] Color rainbow;
+    bool isRainbowing;
+    float hValue;
 
-    private void Start()
+    void Start()
     {
         animRock = rock.GetComponent<Animator>();
         bodyRock = rock.GetComponent<Rigidbody>();
         colRock = rock.GetComponent<BoxCollider>();
         meshRock = rock.GetComponent<MeshFilter>();
         kayou = meshRock.mesh;
+        renderRock = rock.GetComponent<MeshRenderer>();
 
         for (int i = 0; i < index.Count; i++)
         {
             potionColor.Add(index[i].ToString(), materials[i]);
         }
         gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (hValue >= 0.96)
+            hValue = 0;
+
+        hValue += Time.deltaTime * 0.2f;
+
+        rainbow = Color.HSVToRGB(hValue, 1, 1);
+
+        materials[8].SetColor("_DarkColor", rainbow);
+        materials[8].SetColor("_LightColor", rainbow);
+
     }
     public void GetFunction(string index)
     {
@@ -43,7 +64,7 @@ public class Fiole : MonoBehaviour
         if (potionColor.ContainsKey(effect))
             gameObject.GetComponent<MeshRenderer>().material = potionColor[effect];
         else
-            gameObject.GetComponent<MeshRenderer>().material = materials[materials.Count - 1];
+            gameObject.GetComponent<MeshRenderer>().material = materials[8];
     }
 
     void ApplyEffect()
@@ -74,6 +95,9 @@ public class Fiole : MonoBehaviour
             case "8910":
                 Moai();
                 break;
+            case "279":
+                RGB();
+                break;
             default:
                 Debug.Log("fuck you");
                 break;
@@ -89,6 +113,9 @@ public class Fiole : MonoBehaviour
         bodyRock.velocity = Vector3.zero;
         bodyRock.useGravity = false;
         meshRock.mesh = kayou;
+        renderRock.material = materials[10];
+        rock.transform.rotation = quaternion.Euler(new Vector3(0, 55, 0));
+        isRainbowing = false;
     }
 
     #region Functions
@@ -121,6 +148,9 @@ public class Fiole : MonoBehaviour
     void Frog()
     {
         Debug.Log("Frog");
+        renderRock.material = materials[9];
+        meshRock.mesh = phrog;
+        rock.transform.rotation = quaternion.Euler(new Vector3(0, 180, 0));
     }
 
     [Button]
@@ -145,6 +175,13 @@ public class Fiole : MonoBehaviour
     {
         meshRock.mesh = moai;
         Debug.Log("Moai");
+    }
+    [Button]
+    void RGB()
+    {
+        isRainbowing = true;
+        Debug.Log("RGB");
+        renderRock.material = materials[8];
     }
 
     #endregion

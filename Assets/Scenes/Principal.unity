@@ -1230,7 +1230,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f46409e5c06109049a3c5857b2850781, type: 2}
   - {fileID: 2100000, guid: 73d7080d37c9d0d48a15e7d764a50fc1, type: 2}
   - {fileID: 2100000, guid: 019e939ce1470bd42bb449c3cade7fda, type: 2}
+  - {fileID: 2100000, guid: b7aff1662964ee244853208b43ab7bdd, type: 2}
   - {fileID: 2100000, guid: 18781f28a82e1fb409258a9fbe65b0cc, type: 2}
+  - {fileID: 2100000, guid: e0aefb3394d658d4e904db99244c44da, type: 2}
+  - {fileID: 2100000, guid: 839f6809ba894394ca4cc18d8d775721, type: 2}
   index:
   - 268
   - 137
@@ -1240,11 +1243,14 @@ MonoBehaviour:
   - 6711
   - 689
   - 8910
+  - 279
   origin: {fileID: 1287220697}
   rock: {fileID: 139803111}
-  yeetDir: {x: -0.6, y: 0.5, z: 1}
-  yeetForce: 1
+  yeetDir: {x: -0.8, y: 0.7, z: 1}
+  yeetForce: 300
   moai: {fileID: 1646622536927461002, guid: 7251211921cecf64f9a6000a94a3b1be, type: 3}
+  phrog: {fileID: 483112724327190541, guid: 6fc3a6b1464f2e74f88b378b2c83b6b6, type: 3}
+  rainbow: {r: 1, g: 0, b: 0, a: 1}
 --- !u!136 &711455045
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1707,7 +1713,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.323638, y: 0, z: 4.323638}
+  m_Size: {x: 4.323638, y: 0.1, z: 4.323638}
   m_Center: {x: 0, y: 4.387224, z: 0}
 --- !u!1001 &1121091764
 PrefabInstance:
@@ -3188,6 +3194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Caillou
       objectReference: {fileID: 0}
+    - target: {fileID: 3620877902125112668, guid: 5694de4b167ae4b49a6ccb2b75785e92,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 839f6809ba894394ca4cc18d8d775721, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5694de4b167ae4b49a6ccb2b75785e92, type: 3}
 --- !u!4 &1720863493 stripped
