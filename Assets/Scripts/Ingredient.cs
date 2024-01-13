@@ -5,4 +5,17 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour
 {
     public int value;
+
+    [SerializeField] Vector3 centerOfMass2;
+
+    private void Start()
+    {
+        GetComponent<Rigidbody>().centerOfMass = centerOfMass2;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position + transform.rotation * centerOfMass2, 0.1f);
+    }
 }

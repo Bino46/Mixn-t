@@ -5,9 +5,9 @@ using UnityEngine;
 public class ResetScene : MonoBehaviour
 {
     [SerializeField] GameObject ingrParent;
-    GameObject[] objectPrefabs = new GameObject[11];
+    [SerializeField] GameObject[] objectPrefabs = new GameObject[11];
     [SerializeField] GameObject posParent;
-    Transform[] objectPos = new Transform[11];
+    [SerializeField] Transform[] objectPos = new Transform[11];
     [SerializeField] bool reset;
 
     private void Start()
@@ -26,11 +26,19 @@ public class ResetScene : MonoBehaviour
             ResetObjects();
             reset = false;
         }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 3)
+        {
+            ResetOneObject(other.gameObject);
+        }
     }
 
     void ResetObjects()
     {
+        Rigidbody rb;
         for (int i = 0; i <= objectPrefabs.Length - 1; i++)
         {
             if (!objectPrefabs[i].activeSelf)
@@ -38,8 +46,20 @@ public class ResetScene : MonoBehaviour
                 objectPrefabs[i].SetActive(true);
             }
 
+            rb = objectPrefabs[i].GetComponent<Rigidbody>();
+            rb.velocity = Vector3.zero;
             objectPrefabs[i].transform.position = objectPos[i].position;
             objectPrefabs[i].transform.rotation = objectPos[i].rotation;
         }
+
+        RecipeContainer._instance.Reset();
+    }
+
+    void ResetOneObject(GameObject go)
+    {
+        int i = go.GetComponent<Ingredient>().value - 1;
+        objectPrefabs[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+        objectPrefabs[i].transform.position = objectPos[i].position;
+        objectPrefabs[i].transform.rotation = objectPos[i].rotation;
     }
 }

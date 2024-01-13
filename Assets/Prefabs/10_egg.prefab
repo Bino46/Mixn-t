@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 10
+  centerOfMass2: {x: 0, y: 0.12, z: 0}

@@ -7,39 +7,52 @@ public class RecipeContainer : MonoBehaviour
 {
     [SerializeField] List<Ingredient> ingredients = new List<Ingredient>();
     [SerializeField] int index;
+    [SerializeField] Vector3 yeetDir;
+    [SerializeField] float yeetForce;
+    public static RecipeContainer _instance;
+
+    private void Start()
+    {
+        _instance = this;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 3)
         {
-            Ingredient newIngr = other.gameObject.GetComponent<Ingredient>();
-
-            if (index > 0)
+            if (index <= 2)
             {
-                if (newIngr.value > ingredients[index - 1].value)
-                    ingredients.Add(newIngr);
-                else
+                Ingredient newIngr = other.gameObject.GetComponent<Ingredient>();
+
+                if (index > 0)
                 {
-                    if (ingredients.Count > 1)
-                    {
-                        if (newIngr.value > ingredients[index - 2].value)
-                            ingredients.Insert(index - 1, newIngr);
-                        else
-                            ingredients.Insert(index - 2, newIngr);
-                    }
+                    if (newIngr.value > ingredients[index - 1].value)
+                        ingredients.Add(newIngr);
                     else
-                        ingredients.Insert(0, newIngr);
+                    {
+                        if (ingredients.Count > 1)
+                        {
+                            if (newIngr.value > ingredients[index - 2].value)
+                                ingredients.Insert(index - 1, newIngr);
+                            else
+                                ingredients.Insert(index - 2, newIngr);
+                        }
+                        else
+                            ingredients.Insert(0, newIngr);
+                    }
+                }
+                else
+                    ingredients.Add(newIngr);
+
+                index++;
+                other.gameObject.SetActive(false);
+
+                if (index == 3)
+                {
+                    Mix();
                 }
             }
             else
-                ingredients.Add(newIngr);
-
-            index++;
-            other.gameObject.SetActive(false);
-
-            if (index == 3)
-            {
-                Mix();
-            }
+                Yeet(other.gameObject);
         }
     }
 
@@ -53,6 +66,18 @@ public class RecipeContainer : MonoBehaviour
         }
         Debug.Log(potionIndex);
         GetFunction(potionIndex);
+    }
+
+    void Yeet(GameObject obj)
+    {
+        obj.GetComponent<Rigidbody>().AddForce(yeetDir * yeetForce);
+        Debug.Log("yeet " + obj.name);
+    }
+
+    public void Reset()
+    {
+        index = 0;
+        ingredients.RemoveRange(0, ingredients.Count);
     }
 
     void GetFunction(string index)
