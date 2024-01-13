@@ -10,6 +10,7 @@ public class Fiole : MonoBehaviour
     [SerializeField] List<string> index = new List<string>();
     Dictionary<string, Material> potionColor = new Dictionary<string, Material>();
     string effect;
+    [SerializeField] GameObject strangeLiquid;
 
     [Header("Rock")]
     [SerializeField] Transform origin;
@@ -61,9 +62,9 @@ public class Fiole : MonoBehaviour
         effect = index;
         Debug.Log(effect);
         if (potionColor.ContainsKey(effect))
-            gameObject.GetComponent<MeshRenderer>().material = potionColor[effect];
+            strangeLiquid.GetComponent<MeshRenderer>().material = potionColor[effect];
         else
-            gameObject.GetComponent<MeshRenderer>().material = materials[9];
+            strangeLiquid.GetComponent<MeshRenderer>().material = materials[9];
     }
 
     void ApplyEffect()

@@ -103,7 +103,7 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineThickness: 0.56
     - _Parallax: 0.005
-    - _PotionAmount: 0.848
+    - _PotionAmount: 0.625
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
