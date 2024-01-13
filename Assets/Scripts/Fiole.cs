@@ -25,7 +25,6 @@ public class Fiole : MonoBehaviour
     MeshFilter meshRock;
     MeshRenderer renderRock;
     [SerializeField] Color rainbow;
-    bool isRainbowing;
     float hValue;
 
     void Start()
@@ -64,7 +63,7 @@ public class Fiole : MonoBehaviour
         if (potionColor.ContainsKey(effect))
             gameObject.GetComponent<MeshRenderer>().material = potionColor[effect];
         else
-            gameObject.GetComponent<MeshRenderer>().material = materials[8];
+            gameObject.GetComponent<MeshRenderer>().material = materials[9];
     }
 
     void ApplyEffect()
@@ -113,9 +112,8 @@ public class Fiole : MonoBehaviour
         bodyRock.velocity = Vector3.zero;
         bodyRock.useGravity = false;
         meshRock.mesh = kayou;
-        renderRock.material = materials[10];
+        renderRock.material = materials[11];
         rock.transform.rotation = quaternion.Euler(new Vector3(0, 55, 0));
-        isRainbowing = false;
     }
 
     #region Functions
@@ -148,7 +146,7 @@ public class Fiole : MonoBehaviour
     void Frog()
     {
         Debug.Log("Frog");
-        renderRock.material = materials[9];
+        renderRock.material = materials[10];
         meshRock.mesh = phrog;
         rock.transform.rotation = quaternion.Euler(new Vector3(0, 180, 0));
     }
@@ -179,7 +177,6 @@ public class Fiole : MonoBehaviour
     [Button]
     void RGB()
     {
-        isRainbowing = true;
         Debug.Log("RGB");
         renderRock.material = materials[8];
     }
