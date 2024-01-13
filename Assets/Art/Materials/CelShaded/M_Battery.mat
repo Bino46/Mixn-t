@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Yellow
+  m_Name: M_Battery
   m_Shader: {fileID: -6465566751694194690, guid: b11ea05283c41964eac3c73bd7309d6b,
     type: 3}
   m_ValidKeywords: []
@@ -108,11 +108,11 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GradientLightness: 0.538
+    - _GradientLightness: 0.415
     - _Metallic: 0
     - _ObjectOpacity: 1
     - _OcclusionStrength: 1
-    - _OutlineThickness: 0.67
+    - _OutlineThickness: 0.87
     - _OutlineWidth: 0.26
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -131,9 +131,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DarkColor: {r: 1, g: 0.9125756, b: 0, a: 0}
+    - _DarkColor: {r: 0.2735849, g: 0.23032838, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightColor: {r: 0.8746885, g: 0.9811321, b: 0.97278357, a: 0}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _LightColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 0}
+    - _OutlineColor: {r: 0.13207549, g: 0.105014354, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
