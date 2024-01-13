@@ -84,7 +84,7 @@ public class Controller : MonoBehaviour
     {
         if (currObj == null)
         {
-            Ray ray = GetComponent<Camera>().ScreenPointToRay(mousePos);
+            Ray ray = mainCam.ScreenPointToRay(mousePos);
 
             RaycastHit hit;
 
