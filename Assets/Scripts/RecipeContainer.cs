@@ -111,10 +111,12 @@ public class RecipeContainer : MonoBehaviour
     {
         Debug.Log("Pixel");
     }
+
     void Frog()
     {
         Debug.Log("Frog");
     }
+
     void ScrewGravity()
     {
         Debug.Log("ScrewGravity");
