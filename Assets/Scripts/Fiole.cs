@@ -41,7 +41,7 @@ public class Fiole : MonoBehaviour
         {
             potionColor.Add(index[i].ToString(), materials[i]);
         }
-        gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
     }
 
     void Update()
@@ -62,9 +62,9 @@ public class Fiole : MonoBehaviour
         effect = index;
         Debug.Log(effect);
         if (potionColor.ContainsKey(effect))
-            strangeLiquid.GetComponent<MeshRenderer>().material = potionColor[effect];
+            gameObject.GetComponent<MeshRenderer>().material = potionColor[effect];
         else
-            strangeLiquid.GetComponent<MeshRenderer>().material = materials[9];
+            gameObject.GetComponent<MeshRenderer>().material = materials[9];
     }
 
     void ApplyEffect()

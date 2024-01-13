@@ -10,6 +10,7 @@ public class RecipeContainer : MonoBehaviour
     [SerializeField] Vector3 yeetDir;
     [SerializeField] float yeetForce;
     [SerializeField] Fiole container;
+    [SerializeField] GameObject fioleParent;
     public static RecipeContainer _instance;
 
     private void Start()
@@ -66,7 +67,7 @@ public class RecipeContainer : MonoBehaviour
             potionIndex += ingredients[i].value.ToString();
         }
 
-        container.gameObject.SetActive(true);
+        fioleParent.SetActive(true);
         container.GetFunction(potionIndex);
     }
 
@@ -78,7 +79,7 @@ public class RecipeContainer : MonoBehaviour
     public void Reset()
     {
         index = 0;
-        container.gameObject.SetActive(false);
+        fioleParent.SetActive(false);
         ingredients.RemoveRange(0, ingredients.Count);
     }
 }
