@@ -15,15 +15,20 @@ public class Fiole : MonoBehaviour
     [SerializeField] GameObject rock;
     [SerializeField] Vector3 yeetDir;
     [SerializeField] float yeetForce;
+    [SerializeField] Mesh moai;
+    Mesh kayou;
     Animator animRock;
     Rigidbody bodyRock;
     BoxCollider colRock;
+    MeshFilter meshRock;
 
     private void Start()
     {
         animRock = rock.GetComponent<Animator>();
         bodyRock = rock.GetComponent<Rigidbody>();
         colRock = rock.GetComponent<BoxCollider>();
+        meshRock = rock.GetComponent<MeshFilter>();
+        kayou = meshRock.mesh;
 
         for (int i = 0; i < index.Count; i++)
         {
@@ -83,6 +88,7 @@ public class Fiole : MonoBehaviour
         rock.transform.position = origin.position;
         bodyRock.velocity = Vector3.zero;
         bodyRock.useGravity = false;
+        meshRock.mesh = kayou;
     }
 
     #region Functions
@@ -131,12 +137,13 @@ public class Fiole : MonoBehaviour
         Debug.Log("FloatRock");
         colRock.enabled = true;
         bodyRock.useGravity = true;
-        bodyRock.AddForce(yeetDir * 1000);
+        bodyRock.AddForce(yeetDir * yeetForce);
     }
 
     [Button]
     void Moai()
     {
+        meshRock.mesh = moai;
         Debug.Log("Moai");
     }
 
