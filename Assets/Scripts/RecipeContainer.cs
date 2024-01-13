@@ -12,30 +12,32 @@ public class RecipeContainer : MonoBehaviour
         if (other.gameObject.layer == 3)
         {
             Ingredient newIngr = other.gameObject.GetComponent<Ingredient>();
+
             if (index > 0)
             {
-                for (int i = index; i >= 0; i--)
+                if (newIngr.value > ingredients[index - 1].value)
+                    ingredients.Add(newIngr);
+                else
                 {
-                    if (newIngr.value > ingredients[i].value)
+                    if (ingredients.Count > 1)
                     {
-                        if (i == index - 1)
-                            ingredients.Add(newIngr);
+                        if (newIngr.value > ingredients[index - 2].value)
+                            ingredients.Insert(index - 1, newIngr);
                         else
-                            ingredients.Insert(i, newIngr);
+                            ingredients.Insert(index - 2, newIngr);
                     }
+                    else
+                        ingredients.Insert(0, newIngr);
                 }
             }
             else
-            {
                 ingredients.Add(newIngr);
-            }
 
             index++;
             other.gameObject.SetActive(false);
 
             if (index == 3)
             {
-                ingredients.Sort();
                 Mix();
             }
         }
@@ -50,43 +52,42 @@ public class RecipeContainer : MonoBehaviour
             potionIndex += ingredients[i].value.ToString();
         }
         Debug.Log(potionIndex);
-        //GetFunction(potionIndex);
+        GetFunction(potionIndex);
     }
 
     void GetFunction(string index)
     {
 
-
-        // switch (index)
-        // {
-        //     case 8:
-        //         AggroRock();
-        //         break;
-        //     case 11:
-        //         Nuke();
-        //         break;
-        //     case 15:
-        //         UwU();
-        //         break;
-        //     case 16:
-        //         Pixel();
-        //         break;
-        //     case 23:
-        //         Frog();
-        //         break;
-        //     case 24:
-        //         ScrewGravity();
-        //         break;
-        //     case 25:
-        //         FloatRock();
-        //         break;
-        //     case 27:
-        //         Moai();
-        //         break;
-        //     default:
-        //         Debug.Log("fuck you");
-        //         break;
-        // }
+        switch (index)
+        {
+            case "125":
+                AggroRock();
+                break;
+            case "137":
+                Nuke();
+                break;
+            case "438":
+                UwU();
+                break;
+            case "268":
+                Pixel();
+                break;
+            case "689":
+                Frog();
+                break;
+            case "6711":
+                ScrewGravity();
+                break;
+            case "6911":
+                FloatRock();
+                break;
+            case "8910":
+                Moai();
+                break;
+            default:
+                Debug.Log("fuck you");
+                break;
+        }
     }
 
     #region Functions
