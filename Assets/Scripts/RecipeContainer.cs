@@ -9,6 +9,7 @@ public class RecipeContainer : MonoBehaviour
     [SerializeField] int index;
     [SerializeField] Vector3 yeetDir;
     [SerializeField] float yeetForce;
+    [SerializeField] Fiole container;
     public static RecipeContainer _instance;
 
     private void Start()
@@ -64,98 +65,20 @@ public class RecipeContainer : MonoBehaviour
         {
             potionIndex += ingredients[i].value.ToString();
         }
-        Debug.Log(potionIndex);
-        GetFunction(potionIndex);
+
+        container.gameObject.SetActive(true);
+        container.GetFunction(potionIndex);
     }
 
     void Yeet(GameObject obj)
     {
         obj.GetComponent<Rigidbody>().AddForce(yeetDir * yeetForce);
-        Debug.Log("yeet " + obj.name);
     }
 
     public void Reset()
     {
         index = 0;
+        container.gameObject.SetActive(false);
         ingredients.RemoveRange(0, ingredients.Count);
     }
-
-    void GetFunction(string index)
-    {
-
-        switch (index)
-        {
-            case "125":
-                AggroRock();
-                break;
-            case "137":
-                Nuke();
-                break;
-            case "438":
-                UwU();
-                break;
-            case "268":
-                Pixel();
-                break;
-            case "689":
-                Frog();
-                break;
-            case "6711":
-                ScrewGravity();
-                break;
-            case "6911":
-                FloatRock();
-                break;
-            case "8910":
-                Moai();
-                break;
-            default:
-                Debug.Log("fuck you");
-                break;
-        }
-    }
-
-    #region Functions
-
-    void AggroRock()
-    {
-        Debug.Log("Aggro rock");
-    }
-
-    void Nuke()
-    {
-        Debug.Log("Nuke");
-    }
-
-    void UwU()
-    {
-        Debug.Log("UwU");
-    }
-
-    void Pixel()
-    {
-        Debug.Log("Pixel");
-    }
-
-    void Frog()
-    {
-        Debug.Log("Frog");
-    }
-
-    void ScrewGravity()
-    {
-        Debug.Log("ScrewGravity");
-    }
-
-    void FloatRock()
-    {
-        Debug.Log("FloatRock");
-    }
-
-    void Moai()
-    {
-        Debug.Log("Moai");
-    }
-
-    #endregion
 }
