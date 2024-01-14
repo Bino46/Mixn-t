@@ -12,6 +12,7 @@ public class ApplyEffect : MonoBehaviour
         GameObject childPot = transform.GetChild(0).gameObject;
         childPot.GetComponent<MeshRenderer>().enabled = false;
         splash.Play();
+        SoundManager._instance.PlayRockSound(9);
 
         Invoke("Reset", 3f);
     }

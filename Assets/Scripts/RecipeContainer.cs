@@ -88,6 +88,11 @@ public class RecipeContainer : MonoBehaviour
         index = 0;
         Invoke("HidePot", 1f);
         ingredients.RemoveRange(0, ingredients.Count);
+
+        for (int i = 0; i < 3; i++)
+        {
+            IngredientUI[i].GetComponent<Image>().sprite = null;
+        }
     }
 
     void HidePot()

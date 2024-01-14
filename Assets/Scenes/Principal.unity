@@ -1308,6 +1308,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 66dc463624278e246a7535693589317f, type: 3}
   - {fileID: 8300000, guid: d5fe2569213773f428ba1b544521917a, type: 3}
   - {fileID: 8300000, guid: 7dad83887ac75f341a35fea15e8f4a0a, type: 3}
+  - {fileID: 8300000, guid: 1fd825e8e96f08a4497d5ad2e999adae, type: 3}
   chaudronSources:
   - {fileID: 903271420}
   - {fileID: 1220140915}
@@ -10656,7 +10657,7 @@ MonoBehaviour:
   mainCam: {fileID: 443224641}
   moveObjectPos: {fileID: 488913462}
   potion: {fileID: 740368591}
-  inMenu: 1
+  inMenu: 0
   minMouseSpeed: {x: 4, y: 4}
   maxTimer: 0.1
 --- !u!114 &1887925048
