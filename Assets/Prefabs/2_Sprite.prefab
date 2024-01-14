@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 2
+  spriteIngredient: {fileID: 21300000, guid: b8e91331388d0a44a91a066420afb3cd, type: 3}
   centerOfMass2: {x: 0, y: 0, z: 0}
 --- !u!1001 &6831499246126073395
 PrefabInstance:

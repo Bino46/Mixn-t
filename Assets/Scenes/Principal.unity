@@ -246,6 +246,12 @@ Transform:
   m_Father: {fileID: 649635305}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &167098255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1460204578114389786, guid: e07ed9b9b7e896e4a88cfb83c5e18d13,
+    type: 3}
+  m_PrefabInstance: {fileID: 405582469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &182546223 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6589577591534876465, guid: cf2c4bda1c0b7a24baa79a87b6d6d266,
@@ -7353,9 +7359,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredients: []
   IngredientUI:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1839413789}
+  - {fileID: 1799425883}
+  - {fileID: 167098255}
   index: 0
   yeetDir: {x: 5, y: 10, z: 1}
   yeetForce: 100
@@ -9913,6 +9919,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2482852940149515827, guid: 5694de4b167ae4b49a6ccb2b75785e92,
     type: 3}
   m_PrefabInstance: {fileID: 1720863492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1799425883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8730574983067916596, guid: e07ed9b9b7e896e4a88cfb83c5e18d13,
+    type: 3}
+  m_PrefabInstance: {fileID: 405582469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1839413789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5871710159551733991, guid: e07ed9b9b7e896e4a88cfb83c5e18d13,
+    type: 3}
+  m_PrefabInstance: {fileID: 405582469}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1854495214 stripped
 Transform:

@@ -128,4 +128,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 9
+  spriteIngredient: {fileID: 21300000, guid: e8c3789b817621f4bb2edc5f41feee21, type: 3}
   centerOfMass2: {x: 0, y: 0, z: 0}
