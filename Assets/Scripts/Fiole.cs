@@ -83,7 +83,7 @@ public class Fiole : MonoBehaviour
             case "137":
                 Nuke();
                 break;
-            case "438":
+            case "348":
                 UwU();
                 break;
             case "268":
@@ -135,23 +135,27 @@ public class Fiole : MonoBehaviour
     void Nuke()
     {
         Debug.Log("Nuke");
+        SoundManager._instance.PlayRockSound(4);
     }
 
     [Button]
     void UwU()
     {
         Debug.Log("UwU");
+        SoundManager._instance.PlayRockSound(7);
     }
 
     [Button]
     void Pixel()
     {
         Debug.Log("Pixel");
+        SoundManager._instance.PlayRockSound(2);
     }
 
     [Button]
     void Frog()
     {
+        SoundManager._instance.PlayRockSound(6);
         Debug.Log("Frog");
         renderRock.material = materials[10];
         meshRock.mesh = phrog;
@@ -161,6 +165,7 @@ public class Fiole : MonoBehaviour
     [Button]
     void ScrewGravity()
     {
+        SoundManager._instance.PlayRockSound(1);
         Debug.Log("ScrewGravity");
         animRock.enabled = true;
         animRock.SetTrigger("gravity");
@@ -169,6 +174,7 @@ public class Fiole : MonoBehaviour
     [Button]
     void FloatRock()
     {
+        SoundManager._instance.PlayRockSound(5);
         Debug.Log("FloatRock");
         colRock.enabled = true;
         bodyRock.useGravity = true;
@@ -178,12 +184,14 @@ public class Fiole : MonoBehaviour
     [Button]
     void Moai()
     {
+        SoundManager._instance.PlayRockSound(3);
         meshRock.mesh = moai;
         Debug.Log("Moai");
     }
     [Button]
     void RGB()
     {
+        SoundManager._instance.PlayRockSound(8);
         Debug.Log("RGB");
         renderRock.material = materials[8];
     }
