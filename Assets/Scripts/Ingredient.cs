@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour
 {
     public int value;
+    public Sprite spriteIngredient;
 
     [SerializeField] Vector3 centerOfMass2;
 

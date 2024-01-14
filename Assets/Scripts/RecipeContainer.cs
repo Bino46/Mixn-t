@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RecipeContainer : MonoBehaviour
 {
-    [SerializeField] List<Ingredient> ingredients = new List<Ingredient>();
+    public List<Ingredient> ingredients = new List<Ingredient>();
     [SerializeField] int index;
     [SerializeField] Vector3 yeetDir;
     [SerializeField] float yeetForce;
