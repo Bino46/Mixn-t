@@ -14,12 +14,14 @@ public class ButtonUI : MonoBehaviour
     {
         HUD.SetActive(false);
         Pause.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
     public void ContinueGame()
     {
         HUD.SetActive(true);
         Pause.SetActive(false);
+        Time.timeScale = 1.0f;
 
     }
 
