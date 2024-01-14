@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecipeContainer : MonoBehaviour
 {
     public List<Ingredient> ingredients = new List<Ingredient>();
+    [SerializeField] GameObject[] IngredientUI = new GameObject[3];
     [SerializeField] int index;
     [SerializeField] Vector3 yeetDir;
     [SerializeField] float yeetForce;
@@ -44,7 +46,7 @@ public class RecipeContainer : MonoBehaviour
                 }
                 else
                     ingredients.Add(newIngr);
-
+                UIManager();
                 index++;
                 other.gameObject.SetActive(false);
 
@@ -56,6 +58,11 @@ public class RecipeContainer : MonoBehaviour
             else
                 Yeet(other.gameObject);
         }
+    }
+
+    void UIManager()
+    {
+        IngredientUI[index].GetComponent<Image>().sprite = ingredients[index].spriteIngredient;
     }
 
     void Mix()

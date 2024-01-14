@@ -260,7 +260,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1373871857315446588}
         m_TargetAssemblyTypeName: ButtonUI, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: Start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

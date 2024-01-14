@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Witch Magic SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1278480401
   material: {fileID: 601622835330595325}
-  materialHashCode: 0
+  materialHashCode: 626542609
   m_Version: 1.1.0
   m_SourceFontFileGUID: 22187a1f21119c941b0ef0bf8a348ef8
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 22187a1f21119c941b0ef0bf8a348ef8,
@@ -4074,9 +4074,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
