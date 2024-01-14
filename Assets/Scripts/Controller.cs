@@ -16,6 +16,7 @@ public class Controller : MonoBehaviour
     Vector3 worldPos;
     float camDist = 10;
     float isClicking;
+    [SerializeField] Animator potion;
 
     [Header("Momuntum")]
     InputAction moveCamAction;
@@ -111,6 +112,15 @@ public class Controller : MonoBehaviour
                         moveObjectPos.transform.position = currObj.transform.position;
                         camDist = currObj.transform.position.z;
                         //currObj.GetComponent<Rigidbody>().useGravity = false;
+                    }
+                }
+
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << 6))
+                {
+                    Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
+                    if (hit.collider.gameObject != null)
+                    {
+                        potion.SetTrigger("yeet");
                     }
                 }
             }

@@ -124,8 +124,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _WobbleX: 1e-44
-    - _WobbleZ: 1e-44
+    - _WobbleX: -0.08596573
+    - _WobbleZ: -0.52678925
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
@@ -133,9 +133,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DarkColor: {r: 1, g: 0, b: 0.6865363, a: 1}
+    - _DarkColor: {r: 0.18958664, g: 0, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightColor: {r: 1, g: 0, b: 0.6865363, a: 1}
+    - _LightColor: {r: 0.18958664, g: 0, b: 1, a: 1}
     - _OutlineColor: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

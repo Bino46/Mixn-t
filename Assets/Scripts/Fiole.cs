@@ -27,6 +27,12 @@ public class Fiole : MonoBehaviour
     MeshRenderer renderRock;
     [SerializeField] Color rainbow;
     float hValue;
+    public static Fiole _instance;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     void Start()
     {
@@ -67,7 +73,7 @@ public class Fiole : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().material = materials[9];
     }
 
-    void ApplyEffect()
+    public void ApplyEffect()
     {
         switch (effect)
         {
