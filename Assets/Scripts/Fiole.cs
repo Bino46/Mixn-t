@@ -81,6 +81,7 @@ public class Fiole : MonoBehaviour
             splashColor.r = potionCloudColor[effect].x;
             splashColor.g = potionCloudColor[effect].y;
             splashColor.b = potionCloudColor[effect].z;
+            splashColor.a = 1;
 
             var main = potionCloudSplash.main;
             main.startColor = splashColor;
