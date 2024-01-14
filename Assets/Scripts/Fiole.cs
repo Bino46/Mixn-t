@@ -12,6 +12,7 @@ public class Fiole : MonoBehaviour
     Dictionary<string, Vector3> potionCloudColor = new Dictionary<string, Vector3>();
     [SerializeField] ParticleSystem potionCloudSplash;
     [SerializeField] List<Vector3> colorPotionCloudHSV = new List<Vector3>();
+    [SerializeField] ResetScene resetScene;
     Color splashColor;
     string effect;
     [SerializeField] Animator animFiole;
@@ -23,6 +24,8 @@ public class Fiole : MonoBehaviour
     [SerializeField] float yeetForce;
     [SerializeField] Mesh moai;
     [SerializeField] Mesh phrog;
+    [SerializeField] Mesh pixel;
+    [SerializeField] GameObject gunRock;
     Mesh kayou;
     Animator animRock;
     Rigidbody bodyRock;
@@ -135,6 +138,7 @@ public class Fiole : MonoBehaviour
     {
         animRock.enabled = false;
         colRock.enabled = false;
+        rock.SetActive(true);
 
         rock.transform.position = origin.position;
         bodyRock.velocity = Vector3.zero;
@@ -147,6 +151,17 @@ public class Fiole : MonoBehaviour
         rock.transform.rotation = quaternion.Euler(new Vector3(0, 55, 0));
 
         animFiole.SetBool("yeet", false);
+
+        gunRock.SetActive(false);
+
+        Invoke("ReEnablePot", 1.01f);
+
+        RecipeContainer._instance.Reset();
+        resetScene.ResetObjects();
+    }
+
+    void ReEnablePot()
+    {
         animFiole.gameObject.GetComponent<MeshRenderer>().enabled = true;
         gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
@@ -157,19 +172,27 @@ public class Fiole : MonoBehaviour
     void AggroRock()
     {
         Debug.Log("Aggro rock");
+        gunRock.SetActive(true);
+        VFXManager._instance.PlayVFX(0);
+        SoundManager._instance.PlayRockSound(0);
+        renderRock.material = materials[7];
     }
 
     [Button]
     void Nuke()
     {
         Debug.Log("Nuke");
+        VFXManager._instance.PlayVFXAtPos(1, transform);
         SoundManager._instance.PlayRockSound(4);
+        rock.SetActive(false);
     }
 
     [Button]
     void UwU()
     {
         Debug.Log("UwU");
+        VFXManager._instance.PlayVFX(3);
+        renderRock.material = materials[2];
         SoundManager._instance.PlayRockSound(7);
     }
 
@@ -177,6 +200,7 @@ public class Fiole : MonoBehaviour
     void Pixel()
     {
         Debug.Log("Pixel");
+        meshRock.mesh = pixel;
         SoundManager._instance.PlayRockSound(2);
     }
 
@@ -186,6 +210,7 @@ public class Fiole : MonoBehaviour
         SoundManager._instance.PlayRockSound(6);
         Debug.Log("Frog");
         renderRock.material = materials[10];
+        VFXManager._instance.PlayVFX(2);
         meshRock.mesh = phrog;
         rock.transform.rotation = quaternion.Euler(new Vector3(0, 180, 0));
     }
@@ -215,6 +240,7 @@ public class Fiole : MonoBehaviour
         SoundManager._instance.PlayRockSound(3);
         meshRock.mesh = moai;
         Debug.Log("Moai");
+        rock.transform.rotation = quaternion.Euler(0, 46.687f, 0);
     }
     [Button]
     void RGB()

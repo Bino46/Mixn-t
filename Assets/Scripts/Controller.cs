@@ -17,6 +17,7 @@ public class Controller : MonoBehaviour
     float camDist = 10;
     float isClicking;
     [SerializeField] Animator potion;
+    public bool inMenu;
 
     [Header("Momuntum")]
     InputAction moveCamAction;
@@ -95,7 +96,7 @@ public class Controller : MonoBehaviour
 
     void GetItem()
     {
-        if (isClicking == 1)
+        if (isClicking == 1 && !inMenu)
         {
             if (currObj == null)
             {

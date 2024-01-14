@@ -36,7 +36,7 @@ public class ResetScene : MonoBehaviour
         }
     }
 
-    void ResetObjects()
+    public void ResetObjects()
     {
         Rigidbody rb;
         for (int i = 0; i <= objectPrefabs.Length - 1; i++)

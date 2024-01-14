@@ -19,4 +19,8 @@ public class VFXManager : MonoBehaviour
         vfxList[index].transform.rotation = pos.rotation;
         vfxList[index].Play();
     }
+    public void PlayVFX(int index)
+    {
+        vfxList[index].Play();
+    }
 }

@@ -124,8 +124,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _WobbleX: -0.000000114155654
-    - _WobbleZ: -0.000000114155654
+    - _WobbleX: 0.0012460973
+    - _WobbleZ: 0.03975188
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1

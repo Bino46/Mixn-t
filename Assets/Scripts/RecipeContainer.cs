@@ -26,6 +26,7 @@ public class RecipeContainer : MonoBehaviour
             if (index <= 2)
             {
                 Ingredient newIngr = other.gameObject.GetComponent<Ingredient>();
+                UIManager(newIngr);
 
                 if (index > 0)
                 {
@@ -46,7 +47,6 @@ public class RecipeContainer : MonoBehaviour
                 }
                 else
                     ingredients.Add(newIngr);
-                // UIManager();
                 index++;
                 other.gameObject.SetActive(false);
 
@@ -60,9 +60,9 @@ public class RecipeContainer : MonoBehaviour
         }
     }
 
-    void UIManager()
+    void UIManager(Ingredient ingr)
     {
-        IngredientUI[index].GetComponent<Image>().sprite = ingredients[index].spriteIngredient;
+        IngredientUI[index].GetComponent<Image>().sprite = ingr.spriteIngredient;
     }
 
     void Mix()
@@ -86,7 +86,12 @@ public class RecipeContainer : MonoBehaviour
     public void Reset()
     {
         index = 0;
-        fioleParent.SetActive(false);
+        Invoke("HidePot", 1f);
         ingredients.RemoveRange(0, ingredients.Count);
+    }
+
+    void HidePot()
+    {
+        fioleParent.SetActive(false);
     }
 }

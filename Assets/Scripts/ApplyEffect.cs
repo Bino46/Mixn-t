@@ -12,5 +12,12 @@ public class ApplyEffect : MonoBehaviour
         GameObject childPot = transform.GetChild(0).gameObject;
         childPot.GetComponent<MeshRenderer>().enabled = false;
         splash.Play();
+
+        Invoke("Reset", 3f);
+    }
+
+    void Reset()
+    {
+        Fiole._instance.Reset();
     }
 }
