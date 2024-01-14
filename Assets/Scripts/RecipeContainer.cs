@@ -46,7 +46,7 @@ public class RecipeContainer : MonoBehaviour
                 }
                 else
                     ingredients.Add(newIngr);
-                UIManager();
+                // UIManager();
                 index++;
                 other.gameObject.SetActive(false);
 

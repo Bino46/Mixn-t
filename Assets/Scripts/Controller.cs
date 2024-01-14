@@ -120,7 +120,7 @@ public class Controller : MonoBehaviour
                     Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
                     if (hit.collider.gameObject != null)
                     {
-                        potion.SetTrigger("yeet");
+                        potion.SetBool("yeet", true);
                     }
                 }
             }

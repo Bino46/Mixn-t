@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ApplyEffect : MonoBehaviour
 {
-
     [SerializeField] ParticleSystem splash;
     public void Apply()
     {
@@ -12,6 +11,6 @@ public class ApplyEffect : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         GameObject childPot = transform.GetChild(0).gameObject;
         childPot.GetComponent<MeshRenderer>().enabled = false;
-        splash.Play(true);
+        splash.Play();
     }
 }

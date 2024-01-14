@@ -14,6 +14,7 @@ public class Fiole : MonoBehaviour
     [SerializeField] List<Vector3> colorPotionCloudHSV = new List<Vector3>();
     Color splashColor;
     string effect;
+    [SerializeField] Animator animFiole;
 
     [Header("Rock")]
     [SerializeField] Transform origin;
@@ -134,12 +135,20 @@ public class Fiole : MonoBehaviour
     {
         animRock.enabled = false;
         colRock.enabled = false;
+
         rock.transform.position = origin.position;
         bodyRock.velocity = Vector3.zero;
+
         bodyRock.useGravity = false;
+
         meshRock.mesh = kayou;
         renderRock.material = materials[11];
+
         rock.transform.rotation = quaternion.Euler(new Vector3(0, 55, 0));
+
+        animFiole.SetBool("yeet", false);
+        animFiole.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 
     #region Functions
