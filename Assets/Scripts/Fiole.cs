@@ -10,7 +10,6 @@ public class Fiole : MonoBehaviour
     [SerializeField] List<string> index = new List<string>();
     Dictionary<string, Material> potionColor = new Dictionary<string, Material>();
     string effect;
-    [SerializeField] GameObject strangeLiquid;
 
     [Header("Rock")]
     [SerializeField] Transform origin;
