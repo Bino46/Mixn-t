@@ -9,6 +9,10 @@ public class Fiole : MonoBehaviour
     [SerializeField] List<Material> materials = new List<Material>();
     [SerializeField] List<string> index = new List<string>();
     Dictionary<string, Material> potionColor = new Dictionary<string, Material>();
+    Dictionary<string, Vector3> potionCloudColor = new Dictionary<string, Vector3>();
+    [SerializeField] ParticleSystem potionCloudSplash;
+    [SerializeField] List<Vector3> colorPotionCloudHSV = new List<Vector3>();
+    Color splashColor;
     string effect;
 
     [Header("Rock")]
@@ -39,12 +43,14 @@ public class Fiole : MonoBehaviour
         bodyRock = rock.GetComponent<Rigidbody>();
         colRock = rock.GetComponent<BoxCollider>();
         meshRock = rock.GetComponent<MeshFilter>();
-        kayou = meshRock.mesh;
         renderRock = rock.GetComponent<MeshRenderer>();
+
+        kayou = meshRock.mesh;
 
         for (int i = 0; i < index.Count; i++)
         {
             potionColor.Add(index[i].ToString(), materials[i]);
+            potionCloudColor.Add(index[i].ToString(), colorPotionCloudHSV[i]);
         }
         transform.parent.gameObject.SetActive(false);
     }
@@ -67,9 +73,22 @@ public class Fiole : MonoBehaviour
         effect = index;
         Debug.Log(effect);
         if (potionColor.ContainsKey(effect))
+        {
             gameObject.GetComponent<MeshRenderer>().material = potionColor[effect];
+
+            Debug.Log(potionCloudColor[effect]);
+
+            splashColor.r = potionCloudColor[effect].x;
+            splashColor.g = potionCloudColor[effect].y;
+            splashColor.b = potionCloudColor[effect].z;
+
+            var main = potionCloudSplash.main;
+            main.startColor = splashColor;
+        }
         else
+        {
             gameObject.GetComponent<MeshRenderer>().material = materials[9];
+        }
     }
 
     public void ApplyEffect()
